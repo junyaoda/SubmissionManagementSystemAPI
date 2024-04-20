@@ -25,6 +25,7 @@ import com.example.demo.entity.User;
  * 
  * @author 小田
  * @version 1.0.0
+ * 
  */
 @RestController
 @RequestMapping("group")

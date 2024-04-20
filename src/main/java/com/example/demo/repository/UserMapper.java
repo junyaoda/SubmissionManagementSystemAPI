@@ -16,7 +16,7 @@ public interface UserMapper {
 	/**
 	 * ユーザー情報取得
 	 */
-	@Select("SELECT * FROM user WHERE id != 1;")
+	@Select("SELECT * FROM user;")
 	List<User> selectAllUser();
 
 	/**

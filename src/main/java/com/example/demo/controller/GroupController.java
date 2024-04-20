@@ -87,18 +87,15 @@ public class GroupController {
 		int groupId = groupService.getLastInsertGroupId();
 		// メンバーの数だけ登録
 		for (User userlist : groupInfo.getUser()) {
-			// ID=1は空文字（選択無し）の為、登録不要
-			if (userlist.getId() != 1) {
-				// グループを登録
-				groupService.insertGroupMember(groupId, userlist.getId());
-			}
+			// グループを登録
+			groupService.insertGroupMember(groupId, userlist.getId());
 		}
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	/**
-	 * updateGroupメソッド 
-	 * グループ情報を更新するメソッド
+	 * updateGroupメソッド グループ情報を更新するメソッド
+	 * 
 	 * @param GroupMemberDTO グループ名とメンバーの情報
 	 * @return HttpStatus
 	 */
@@ -110,19 +107,15 @@ public class GroupController {
 		groupService.deleteGroupMember(group.getGroupId());
 		// グループメンバーの数だけループ
 		for (User list : group.getUser()) {
-			// ID=1は空文字（選択無し）の為、登録不要
-			if (list.getId() != 1) {
-				// グループメンバーを登録
-				groupService.insertGroupMember(group.getGroupId(), list.getId());
-			}
-
+			// グループメンバーを登録
+			groupService.insertGroupMember(group.getGroupId(), list.getId());
 		}
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
 
 	/**
-	 * deleteGroupメソッド 
-	 * グループ情報を削除するメソッド
+	 * deleteGroupメソッド グループ情報を削除するメソッド
+	 * 
 	 * @param int グループID
 	 * @return HttpStatus
 	 */
